@@ -10,6 +10,7 @@ import static junit.framework.Assert.assertEquals;
 public class EnclosureTest {
 
     Enclosure enclosure;
+    Creature creature;
 
     @Before
 
@@ -26,5 +27,22 @@ public class EnclosureTest {
     @Test
     public void getHoldType(){
         assertEquals(HoldType.AQUATIC, enclosure.getHold());
+    }
+
+    @Test
+    public void canAddCreatureTest(){
+        creature = new Creature("Will",SpeciesType.HIPPOCAMPUS);
+        enclosure.addCreature(creature);
+        assertEquals("Will", enclosure.getCreatureByIndex(0).name);
+    }
+
+    @Test
+    public void canGetCreatureByIndex(){
+       Creature creature1 = new Creature("Tegan",SpeciesType.UNICORN);
+        Creature creature2 = new Creature("Lewis",SpeciesType.PEGASUS);
+        enclosure.addCreature(creature1);
+        enclosure.addCreature(creature2);
+        assertEquals("Tegan", enclosure.getCreatureByIndex(0).name);
+
     }
 }

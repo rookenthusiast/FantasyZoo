@@ -9,6 +9,7 @@ public class Enclosure {
     private String name;
     private ArrayList<Creature> coop;
     private HoldType hold;
+    private Creature creature;
 
     public Enclosure(String name, HoldType hold ){
         this.name = name;
@@ -20,11 +21,16 @@ public class Enclosure {
         return name;
     }
 
-    public ArrayList<Creature> getCoop() {
-        return coop;
-    }
-
     public HoldType getHold() {
         return hold;
     }
+
+    public void addCreature(Creature creature){
+        coop.add(creature);
+    }
+
+    public Creature getCreatureByIndex(int position) {
+       return coop.get(position);
+    }
+
 }
