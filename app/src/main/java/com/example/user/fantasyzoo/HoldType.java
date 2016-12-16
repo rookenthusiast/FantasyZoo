@@ -8,5 +8,4 @@ public enum HoldType {
     AVIARY,
     RUGGED,
     POLAR
-
 }

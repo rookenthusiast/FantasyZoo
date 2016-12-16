@@ -1,6 +1,8 @@
 package com.example.user.fantasyzoo;
 import org.junit.*;
 
+import java.util.ArrayList;
+
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -9,17 +11,23 @@ import static junit.framework.Assert.assertEquals;
 public class CreatureTest {
 
     Creature creature;
+    ArrayList<HoldType> habitats;
 
+    @Before
+    public void before(){
+      habitats = new ArrayList<HoldType>();
+    }
 
     @Test
     public void canGetName() {
-        creature = new Creature("Will", SpeciesType.CHIMERA);
+        habitats.add(HoldType.AVIARY);
+        creature = new Creature("Will", SpeciesType.CHIMERA, habitats);
         assertEquals("Will", creature.getName());
     }
 
     @Test
     public void canGetSpecies(){
-        creature = new Creature("Will", SpeciesType.CHIMERA);
+        creature = new Creature("Will", SpeciesType.CHIMERA, habitats);
         assertEquals(SpeciesType.CHIMERA, creature.getSpecies());
     }
 
