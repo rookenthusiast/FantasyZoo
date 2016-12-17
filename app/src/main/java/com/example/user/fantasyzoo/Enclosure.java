@@ -37,6 +37,10 @@ public class Enclosure {
     public Creature getCreatureByIndex(int position) {
         return coop.get(position);
     }
+
+    public int checkHowManyCreaturesInCoop(){
+        return coop.size();
+    }
 //
     public String addCreatureIfSuitable(Creature creature) {
         String message = null;

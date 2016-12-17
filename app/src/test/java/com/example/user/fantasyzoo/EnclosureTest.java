@@ -4,6 +4,7 @@ import org.junit.*;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 
 
 /**
@@ -51,10 +52,23 @@ public class EnclosureTest {
     }
 
     @Test
+    public void checkNumberOfCreaturesInCoop(){
+        Creature creature = new Creature("Talon",SpeciesType.CHIMERA, habitats);
+        enclosure.addCreature(creature);
+        assertEquals(1, enclosure.checkHowManyCreaturesInCoop());
+    }
+
+//    @Test
+//    public void canAddHabitat
+
+    @Test
     public void checkCreatureSuitable(){
         creature = new Creature("Will", SpeciesType.HIPPOCAMPUS, habitats);
-        habitats.add(HoldType.AQUATIC);
-        assertEquals(0,e);
-//
+        creature.addHabitat(HoldType.AQUATIC);
+
+        assertEquals(0,enclosure.checkHowManyCreaturesInCoop());
+        enclosure.addCreatureIfSuitable(creature);
+        assertEquals(1, enclosure.checkHowManyCreaturesInCoop());
+
     }
 }

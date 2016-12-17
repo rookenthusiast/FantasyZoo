@@ -28,4 +28,12 @@ public class Creature {
         return habitats;
     }
 
+    public int checkHowManyHabitatsItCanLive(){
+        return habitats.size();
+    }
+
+    public void addHabitat(HoldType holdType){
+        habitats.add(holdType);
+    }
+
 }

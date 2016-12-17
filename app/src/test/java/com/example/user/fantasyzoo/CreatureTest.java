@@ -31,4 +31,17 @@ public class CreatureTest {
         assertEquals(SpeciesType.CHIMERA, creature.getSpecies());
     }
 
+    @Test
+    public void numberOfHabitats(){
+        creature = new Creature("Will", SpeciesType.CHIMERA, habitats);
+        assertEquals(0,creature.checkHowManyHabitatsItCanLive());
+    }
+
+    @Test
+    public void canAddHabitat(){
+        creature = new Creature("Will", SpeciesType.CHIMERA, habitats);
+        creature.addHabitat(HoldType.RUGGED);
+        assertEquals(1, creature.checkHowManyHabitatsItCanLive());
+    }
+
 }
