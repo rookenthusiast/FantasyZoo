@@ -14,13 +14,12 @@ public class EnclosureTest {
 
     Enclosure enclosure;
     Creature creature;
-    ArrayList<HoldType> habitats;
+
 
     @Before
 
     public void before(){
         enclosure = new Enclosure("Northern Sea",HoldType.AQUATIC);
-//        ArrayList<HoldType> habitats = new ArrayList<HoldType>();
 
     }
 
@@ -36,15 +35,15 @@ public class EnclosureTest {
 
     @Test
     public void canAddCreatureTest(){
-        creature = new Creature("Will",SpeciesType.HIPPOCAMPUS, habitats );
+        creature = new Creature("Will",SpeciesType.HIPPOCAMPUS);
         enclosure.addCreature(creature);
         assertEquals("Will", enclosure.getCreatureByIndex(0).name);
     }
 
     @Test
     public void canGetCreatureByIndex(){
-       Creature creature1 = new Creature("Tegan",SpeciesType.UNICORN, habitats);
-        Creature creature2 = new Creature("Lewis",SpeciesType.PEGASUS, habitats);
+       Creature creature1 = new Creature("Tegan",SpeciesType.UNICORN);
+        Creature creature2 = new Creature("Lewis",SpeciesType.PEGASUS);
         enclosure.addCreature(creature1);
         enclosure.addCreature(creature2);
         assertEquals("Tegan", enclosure.getCreatureByIndex(0).name);
@@ -53,19 +52,15 @@ public class EnclosureTest {
 
     @Test
     public void checkNumberOfCreaturesInCoop(){
-        Creature creature = new Creature("Talon",SpeciesType.CHIMERA, habitats);
+        Creature creature = new Creature("Talon",SpeciesType.CHIMERA);
         enclosure.addCreature(creature);
         assertEquals(1, enclosure.checkHowManyCreaturesInCoop());
     }
 
-//    @Test
-//    public void canAddHabitat
-
     @Test
     public void checkCreatureSuitable(){
-        creature = new Creature("Will", SpeciesType.HIPPOCAMPUS, habitats);
+        creature = new Creature("Will", SpeciesType.HIPPOCAMPUS);
         creature.addHabitat(HoldType.AQUATIC);
-
         assertEquals(0,enclosure.checkHowManyCreaturesInCoop());
         enclosure.addCreatureIfSuitable(creature);
         assertEquals(1, enclosure.checkHowManyCreaturesInCoop());

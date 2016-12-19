@@ -14,7 +14,6 @@ public class Enclosure {
     private String name;
     private ArrayList<Creature> coop;
     private HoldType hold;
-    private Creature creature;
 
     public Enclosure(String name, HoldType hold) {
         this.name = name;
@@ -53,21 +52,6 @@ public class Enclosure {
         }
         return message;
     }
-
-
-//if (comparison.contains(species)){
-//    List holds = (List)comparison.get(species);
-//    holds.add(hold);
-//}
-//        else
-//{
-//    List values = new ArrayList();
-//    values.add(hold);
-//    comparison.put(species, values);
-//}
-//        return (List)comparison.get(species);
-//
-//    }
 }
 
 

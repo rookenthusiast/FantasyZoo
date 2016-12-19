@@ -10,10 +10,10 @@ public class Creature {
     private SpeciesType species;
     private ArrayList<HoldType> habitats;
 
-    public Creature(String name, SpeciesType species, ArrayList<HoldType> habitats ){
+    public Creature(String name, SpeciesType species){
         this.name = name;
         this.species = species;
-        this.habitats = habitats;
+        this.habitats = new ArrayList<HoldType>();
     }
 
     public String getName() {
