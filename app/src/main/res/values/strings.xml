@@ -3,4 +3,5 @@
     <string name="welcome_text">Welcome to your Fantasy Zoo user, enter your zoo to manage the park</string>
     <string name="enter">Enter the zoo</string>
     <string name="main_page">Zoo hub</string>
+    <string name="zoo_hub_main">This is your hub User. from here you may buy creatures for your park and manage your zoo\'s enclosures.</string>
 </resources>
