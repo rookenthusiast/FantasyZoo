@@ -13,6 +13,7 @@ public class UserTest {
     User user;
     Enclosure enclosure;
     Creature creature;
+    Shop shop;
 
     @Before
     public void before(){
@@ -20,6 +21,7 @@ public class UserTest {
         user = new User("Cameron",enclosure);
         creature = new Creature("Bucklebeak",SpeciesType.GRIFFIN);
         creature.addHabitat(HoldType.AVIARY);
+        shop = new Shop();
     }
 
     @Test
@@ -44,7 +46,14 @@ public class UserTest {
         user.addCreatureToStorage(creature);
         assertEquals(1,user.checkHowManyCreaturesInStorage());
         assertEquals(creature, user.getCreatureByName("Bucklebeak"));
-        System.out.println(user.getCreatureByName("Bucklebeak"));
+        System.out.println(user.getCreatureByName("Bucklebeak").toString());
+    }
+
+    @Test
+    public void canGetCreatureFromShop(){
+        assertEquals(0, user.checkHowManyCreaturesInStorage());
+//        user.buyCreatureFromShop(creature);
+//        assertEquals(1, user.checkHowManyCreaturesInStorage());
     }
 
     @Test

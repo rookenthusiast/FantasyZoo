@@ -29,6 +29,14 @@ public class Enclosure {
         return hold;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHold(HoldType hold) {
+        this.hold = hold;
+    }
+
     public void addCreature(Creature creature) {
         coop.add(creature);
     }

@@ -19,6 +19,10 @@
 
         <activity android:name=".FantasyZoo"
             android:label="@string/main_page">
+        </activity>
+
+        <activity android:name=".ShopActivity"
+            android:label="@string/shop_label">
 
         </activity>
 

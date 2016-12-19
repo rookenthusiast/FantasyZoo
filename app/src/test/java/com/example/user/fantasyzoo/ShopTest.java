@@ -22,4 +22,22 @@ public class ShopTest {
         shop = new Shop();
         assertEquals(4,shop.checkHowManyCreaturesInStore());
     }
+
+    @Test
+    public void canRemoveCreature(){
+        shop = new Shop();
+        shop.removeCreatureFromShop(0);
+        assertEquals(3,shop.checkHowManyCreaturesInStore());
+    }
+
+    @Test
+    public void canGetCreatureAtIndex(){
+        shop = new Shop();
+        Creature creature = shop.getCreatureByIndex(0);
+        System.out.println(shop.getCreatureByIndex(0));
+        System.out.println(shop.getCreatureByIndex(1));
+        System.out.println(shop.getCreatureByIndex(2));
+        System.out.println(shop.getCreatureByIndex(3));
+        assertEquals("Bucklebeak", creature.getName());
+    }
 }

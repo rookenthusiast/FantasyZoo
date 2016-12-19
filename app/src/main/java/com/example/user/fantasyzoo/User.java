@@ -9,6 +9,7 @@ public class User{
     private String name;
     ArrayList<Creature> storage;
     Enclosure enclosure;
+    Shop shop = new Shop();
 
 
     public User(String name, Enclosure enclosure) {
@@ -16,6 +17,8 @@ public class User{
         this.storage = new ArrayList<Creature>();
         this.enclosure = enclosure;
     }
+
+
 
     public int checkHowManyCreaturesInStorage() {
         return storage.size();
@@ -25,8 +28,20 @@ public class User{
         return name;
     }
 
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void addCreatureToStorage(Creature creature){
         storage.add(creature);
+    }
+
+    public void buyCreatureFromShop(Creature creature){
+        int shopCreature = shop.getIndexOfCreature(creature);
+        Creature creatureToBeAdded = shop.removeCreatureFromShop(shopCreature);
+        storage.add(creatureToBeAdded);
+
     }
 
     public Creature getCreatureByName(String name){

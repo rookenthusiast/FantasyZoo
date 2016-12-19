@@ -45,5 +45,4 @@ public class CreatureTest {
         creature.addHabitat(HoldType.AVIARY);
         assertEquals(2, creature.checkHowManyHabitatsItCanLive());
     }
-
 }

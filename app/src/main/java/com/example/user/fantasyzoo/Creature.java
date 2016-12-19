@@ -20,6 +20,14 @@ public class Creature {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSpecies(SpeciesType species) {
+        this.species = species;
+    }
+
     public SpeciesType getSpecies() {
         return species;
     }
@@ -36,4 +44,8 @@ public class Creature {
         habitats.add(holdType);
     }
 
+    @Override
+    public String toString(){
+        return "Name: " + this.name + " ,Species:" + this.species + ", habitats:" + habitats.toString();
+    }
 }

@@ -18,6 +18,11 @@ public class Shop {
         addCreatureToStore(creature2);
         addCreatureToStore(creature3);
         addCreatureToStore(creature4);
+        creature1.addHabitat(HoldType.AVIARY);
+        creature2.addHabitat(HoldType.AVIARY);
+        creature2.addHabitat(HoldType.RUGGED);
+        creature3.addHabitat(HoldType.AVIARY);
+        creature4.addHabitat(HoldType.POLAR);
     }
 
     public ArrayList<Creature> getShopWarehouse() {
@@ -30,6 +35,21 @@ public class Shop {
 
     public int checkHowManyCreaturesInStore(){
         return shopWarehouse.size();
+    }
+
+    public int getIndexOfCreature(Creature creature) {
+        return shopWarehouse.indexOf(creature);
+    }
+
+    public Creature getCreatureByIndex(int position){
+        return shopWarehouse.get(position);
+    }
+
+
+
+    public Creature removeCreatureFromShop(int position){
+        Creature creatureToBeRemoved =  shopWarehouse.remove(position);
+        return creatureToBeRemoved;
     }
 
 }
