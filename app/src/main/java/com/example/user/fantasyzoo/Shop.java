@@ -45,6 +45,15 @@ public class Shop {
         return shopWarehouse.get(position);
     }
 
+    public Creature getCreatureByName(String name){
+        for(Creature shopCreature : shopWarehouse){
+            if(shopCreature.getName() == name){
+                return shopCreature;}
+        }
+
+        return null;
+    }
+
 
 
     public Creature removeCreatureFromShop(int position){

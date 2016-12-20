@@ -3,7 +3,10 @@
     <string name="welcome_text">Welcome to your Fantasy Zoo user, enter your zoo to manage the park</string>
     <string name="enter">Enter the zoo</string>
     <string name="main_page">Zoo hub</string>
-    <string name="zoo_hub_main">This is your hub User. from here you may buy creatures for your park and manage your zoo\'s enclosures.</string>
+    <string name="zoo_hub_main">This is your hub User. From here you may buy creatures for your park and manage your zoo\'s enclosures.</string>
     <string name="shop_text">Welcome to the creature shop, here you may buy a creature to add to your storage</string>
     <string name="shop_label">Shop Inventory</string>
+    <string name="buy_label">Buy</string>
+    <string name="storage_text">Welcome to your storage user, what creature would you like to manage?</string>
+    <string name="storage_label">User Storage</string>
 </resources>

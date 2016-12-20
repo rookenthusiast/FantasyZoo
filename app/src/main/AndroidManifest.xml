@@ -26,6 +26,21 @@
 
         </activity>
 
+        <activity android:name=".CreatureShopActivity"
+            android:label="@string/shop_label">
+
+        </activity>
+
+        <activity android:name=".CreatureStorageActivity"
+            android:label="@string/storage_label">
+
+        </activity>
+
+        <activity android:name=".UserStorageActivity"
+            android:label="@string/storage_label">
+
+        </activity>
+
     </application>
 
 </manifest>

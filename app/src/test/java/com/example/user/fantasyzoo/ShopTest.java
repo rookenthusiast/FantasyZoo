@@ -31,6 +31,14 @@ public class ShopTest {
     }
 
     @Test
+    public void canGetCreatureByName(){
+        shop = new Shop();
+        Creature creature = shop.getCreatureByName("Bucklebeak");
+        assertEquals("Bucklebeak", creature.name);
+
+    }
+
+    @Test
     public void canGetCreatureAtIndex(){
         shop = new Shop();
         Creature creature = shop.getCreatureByIndex(0);

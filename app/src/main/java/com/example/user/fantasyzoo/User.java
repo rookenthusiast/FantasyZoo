@@ -28,6 +28,9 @@ public class User{
         return name;
     }
 
+    public ArrayList<Creature> getStorage() {
+        return storage;
+    }
 
     public void setName(String name) {
         this.name = name;
