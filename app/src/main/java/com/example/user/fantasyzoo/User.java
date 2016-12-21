@@ -42,7 +42,7 @@ public class User{
 
     public Creature getCreatureByName(String name){
         for(Creature userCreature : storage){
-            if(userCreature.getName() == name)
+            if(userCreature.getName().equals(name))
                 return userCreature;
         }
 

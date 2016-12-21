@@ -24,7 +24,7 @@ public class CreatureStorageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("StorageActivity", "CreatureStorageActivity.onCreate called");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creature_info_enclosure);
+        setContentView(R.layout.activity_creature_info);
 
         creatureInfo = (TextView) findViewById(R.id.creature_info);
         addToEnclosureButton = (Button) findViewById(R.id.add_to_enclosure_button);
@@ -76,7 +76,7 @@ public class CreatureStorageActivity extends AppCompatActivity {
         String[] splitWords = creatureString.split(" ");
         String creatureName = splitWords[1];
         System.out.println(creatureName);
-        return enclosure.getCreatureByName(creatureName);
+        return user.getCreatureByName(creatureName);
 
     }
 

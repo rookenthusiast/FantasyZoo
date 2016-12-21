@@ -14,7 +14,6 @@ import com.google.gson.Gson;
  */
 public class CreatureShopActivity extends AppCompatActivity {
     TextView creatureInfo;
-    TextView testView;
     Button buyButton;
     Shop shop;
     User user;
@@ -24,7 +23,7 @@ public class CreatureShopActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("ShopActivity", "CreatureShopActivity.onCreate called");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creature_info);
+        setContentView(R.layout.activity_creature_info_shop);
 
         creatureInfo = (TextView) findViewById(R.id.creature_info);
         buyButton = (Button) findViewById(R.id.buy_creature_button);

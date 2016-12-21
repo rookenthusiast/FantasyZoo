@@ -42,12 +42,13 @@
         </activity>
 
         <activity android:name=".CreatureEnclosureActivity"
+            android:parentActivityName=".EnclosureActivity"
             android:label="@string/enclosure_label">
 
         </activity>
 
         <activity android:name=".EnclosureActivity"
-            android:parentActivityName=".CreatureEnclosureActivity"
+            android:parentActivityName=".FantasyZoo"
             android:label="@string/enclosure_label">
 
         </activity>

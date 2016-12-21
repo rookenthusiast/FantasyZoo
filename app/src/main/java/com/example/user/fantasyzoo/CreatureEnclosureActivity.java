@@ -22,7 +22,7 @@ public class CreatureEnclosureActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("ShopActivity", "CreatureShopActivity.onCreate called");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creature_info);
+        setContentView(R.layout.activity_creature_info_enclosure);
 
         creatureInfo = (TextView) findViewById(R.id.creature_info);
 
