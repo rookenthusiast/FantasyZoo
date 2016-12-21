@@ -66,10 +66,9 @@ public class CreatureShopActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(CreatureShopActivity.this, UserStorageActivity.class);
 
-                intent.putExtra("creatureInfo", creatureInfo.getText() );
                 intent.putExtra("Shop",shopAsJson );
-                intent.putExtra("enclosure", enclosureAsJson);
-                intent.putExtra("user", userAsJson);
+                intent.putExtra("Enclosure", enclosureAsJson);
+                intent.putExtra("User", userAsJson);
 
                 startActivity(intent);
             }

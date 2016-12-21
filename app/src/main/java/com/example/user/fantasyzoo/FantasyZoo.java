@@ -17,6 +17,14 @@ public class FantasyZoo extends AppCompatActivity {
     User user;
     Enclosure enclosure;
 
+    Intent intent = getIntent();
+    Bundle extras = intent.getExtras();
+    Gson gson = new Gson();
+
+    String shopAsJson = extras.getString("Shop");
+    String userAsJson = extras.getString("User");
+    String enclosureAsJson = extras.getString("Enclosure");
+
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {

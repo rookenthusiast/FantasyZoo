@@ -9,7 +9,7 @@ public class User{
     private String name;
     ArrayList<Creature> storage;
     Enclosure enclosure;
-    Shop shop = new Shop();
+    Shop shop;
 
 
     public User(String name, Enclosure enclosure) {
@@ -40,12 +40,12 @@ public class User{
         storage.add(creature);
     }
 
-    public void buyCreatureFromShop(Creature creature){
-        int shopCreature = shop.getIndexOfCreature(creature);
-        Creature creatureToBeAdded = shop.removeCreatureFromShop(shopCreature);
-        storage.add(creatureToBeAdded);
+//    public void buyCreatureFromShop(Creature creature){
+//        int shopCreature = shop.getIndexOfCreature(creature);
+//        Creature creatureToBeAdded = shop.removeCreatureFromShop(shopCreature);
+//        storage.add(creatureToBeAdded);
 
-    }
+//    }
 
     public Creature getCreatureByName(String name){
         for(Creature userCreature : storage){

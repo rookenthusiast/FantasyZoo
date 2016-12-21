@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 public class UserStorageActivity extends AppCompatActivity{
     TextView storageTextView;
     ListView listView;
+    Button FantasyZooButton;
     ArrayAdapter<String> adapter;
     Enclosure enclosure;
     User user;
@@ -34,9 +36,7 @@ public class UserStorageActivity extends AppCompatActivity{
 
         storageTextView = (TextView) findViewById(R.id.storage_text);
         listView = (ListView)findViewById(R.id.storage_listview);
-
-        enclosure = new Enclosure("The Bird Cage", HoldType.AVIARY);
-        final User user = new User("Cameron",enclosure);
+        FantasyZooButton = (Button)findViewById(R.id.to_fantasy_zoo_button);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -45,6 +45,34 @@ public class UserStorageActivity extends AppCompatActivity{
         String shopAsJson = extras.getString("Shop");
         String userAsJson = extras.getString("User");
         String enclosureAsJson = extras.getString("Enclosure");
+
+        enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
+        shop = gson.fromJson(shopAsJson, Shop.class);
+        user = gson.fromJson(userAsJson, User.class);
+
+        FantasyZooButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Gson gson = new Gson();
+
+                String shopAsJson = gson.toJson(shop);
+                String enclosureAsJson = gson.toJson(enclosure);
+                String userAsJson = gson.toJson(user);
+
+                Intent intent = new Intent(UserStorageActivity.this, FantasyZoo.class);
+                startActivity(intent);
+
+                intent.putExtra("Shop",shopAsJson );
+                intent.putExtra("Enclosure", enclosureAsJson);
+                intent.putExtra("User", userAsJson);
+
+            
+            }
+
+
+        });
 
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,getAllCreaturesFromStorage(user));
