@@ -50,13 +50,6 @@ public class UserTest {
     }
 
     @Test
-    public void canGetCreatureFromShop(){
-        assertEquals(0, user.checkHowManyCreaturesInStorage());
-//        user.buyCreatureFromShop(creature);
-//        assertEquals(1, user.checkHowManyCreaturesInStorage());
-    }
-
-    @Test
     public void canAddCreatureToEnclosure(){
         user.addCreatureToStorage(creature);
         assertEquals(1,user.checkHowManyCreaturesInStorage());

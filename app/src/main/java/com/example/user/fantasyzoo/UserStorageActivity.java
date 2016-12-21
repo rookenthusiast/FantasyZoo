@@ -62,13 +62,16 @@ public class UserStorageActivity extends AppCompatActivity{
                 String userAsJson = gson.toJson(user);
 
                 Intent intent = new Intent(UserStorageActivity.this, FantasyZoo.class);
-                startActivity(intent);
 
                 intent.putExtra("Shop",shopAsJson );
                 intent.putExtra("Enclosure", enclosureAsJson);
                 intent.putExtra("User", userAsJson);
 
-            
+                startActivity(intent);
+
+
+
+
             }
 
 

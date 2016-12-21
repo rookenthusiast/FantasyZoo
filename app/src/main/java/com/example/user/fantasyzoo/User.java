@@ -40,13 +40,6 @@ public class User{
         storage.add(creature);
     }
 
-//    public void buyCreatureFromShop(Creature creature){
-//        int shopCreature = shop.getIndexOfCreature(creature);
-//        Creature creatureToBeAdded = shop.removeCreatureFromShop(shopCreature);
-//        storage.add(creatureToBeAdded);
-
-//    }
-
     public Creature getCreatureByName(String name){
         for(Creature userCreature : storage){
             if(userCreature.getName() == name)

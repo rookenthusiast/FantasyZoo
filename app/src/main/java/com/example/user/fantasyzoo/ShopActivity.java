@@ -37,16 +37,21 @@ public class ShopActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        Gson gson = new Gson();
 
-        String userAsJson = extras.getString("User");
-        String enclosureAsJson = extras.getString("Enclosure");
+        if(extras != null) {
+            String userAsJson = extras.getString("User");
+            String enclosureAsJson = extras.getString("Enclosure");
+            String shopAsJson = extras.getString("Shop");
 
-        user = gson.fromJson(userAsJson, User.class);
-        enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
+            Gson gson = new Gson();
+            user = gson.fromJson(userAsJson, User.class);
+            enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
+//            shop = gson.fromJson(shopAsJson, Shop.class);
 
-
-        shop = new Shop();
+//            if (shopAsJson.equals(null)) {
+                shop = new Shop();
+//            }
+        }
 
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,getAllCreaturesFromShop(shop));

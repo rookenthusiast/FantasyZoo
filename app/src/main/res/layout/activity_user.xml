@@ -18,6 +18,7 @@
 
     <Button
         android:id="@+id/to_fantasy_zoo_button"
+        android:text="@string/fantasy_zoo_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

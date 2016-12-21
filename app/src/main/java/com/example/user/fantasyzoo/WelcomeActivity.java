@@ -7,30 +7,40 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 /**
  * Created by user on 19/12/2016.
  */
 public class WelcomeActivity extends AppCompatActivity {
     TextView welcomeText;
     Button welcomeButton;
+    Shop shop;
+    Enclosure enclosure;
+    User user;
+
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
-    super.onCreate(saveInstanceState);
-    setContentView(R.layout.activity_welcome);
+        super.onCreate(saveInstanceState);
+        setContentView(R.layout.activity_welcome);
 
-    welcomeText = (TextView)findViewById(R.id.welcome_text);
-    welcomeButton = (Button)findViewById(R.id.enter_button);
+        welcomeText = (TextView)findViewById(R.id.welcome_text);
+        welcomeButton = (Button)findViewById(R.id.enter_button);
 
-    welcomeButton.setOnClickListener(new View.OnClickListener(){
+        welcomeButton.setOnClickListener(new View.OnClickListener(){
 
-        @Override
-                public void onClick(View v) {
-            Intent intent = new Intent(WelcomeActivity.this, FantasyZoo.class);
-            startActivity(intent);
-        }
-    });
-  }
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(WelcomeActivity.this, FantasyZoo.class);
+                startActivity(intent);
+
+
+            }
+        });
+    }
 }
 
 
