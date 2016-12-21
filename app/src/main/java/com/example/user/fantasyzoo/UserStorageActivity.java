@@ -38,6 +38,7 @@ public class UserStorageActivity extends AppCompatActivity{
         listView = (ListView)findViewById(R.id.storage_listview);
         FantasyZooButton = (Button)findViewById(R.id.to_fantasy_zoo_button);
 
+
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         Gson gson = new Gson();

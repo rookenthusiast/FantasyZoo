@@ -7,19 +7,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
 /**
- * Created by user on 19/12/2016.
+ * Created by user on 21/12/2016.
  */
-
-public class ShopActivity extends AppCompatActivity {
-    TextView ShopText;
-    ListView shopListView;
+public class EnclosureActivity extends AppCompatActivity {
+    TextView enclosureText;
+    ListView enclosureListView;
     ArrayAdapter<String> adapter;
     Shop shop;
     Creature creature;
@@ -30,10 +30,10 @@ public class ShopActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
-        setContentView(R.layout.activity_shop);
+        setContentView(R.layout.activity_enclosure);
 
-        ShopText = (TextView) findViewById(R.id.shop_text);
-        shopListView = (ListView)findViewById(R.id.shop_listview);
+        enclosureText = (TextView) findViewById(R.id.enclosure_text);
+        enclosureListView = (ListView)findViewById(R.id.enclosure_listview);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -46,33 +46,28 @@ public class ShopActivity extends AppCompatActivity {
             Gson gson = new Gson();
             user = gson.fromJson(userAsJson, User.class);
             enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
-
-//            if(shopAsJson != null){
-//                shop = gson.fromJson(shopAsJson, Shop.class);
-//            } else if(shopAsJson == null){
-            shop = new Shop();
-//            }
+            shop = gson.fromJson(shopAsJson, Shop.class);
 
         }
 
         adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,getAllCreaturesFromShop(shop));
+                android.R.layout.simple_list_item_1,getAllCreaturesFromEnclosure(enclosure));
 
-        shopListView.setAdapter(adapter);
+        enclosureListView.setAdapter(adapter);
 
-        shopListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        enclosureListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String creatureSelected = (String)shopListView.getItemAtPosition(position);
+                String creatureSelected = (String)enclosureListView.getItemAtPosition(position);
 
-                Log.d("shopListView",creatureSelected + "selected");
+                Log.d("enclosureListView",creatureSelected + "selected");
 
                 Gson gson = new Gson();
                 String shopAsJson = gson.toJson(shop);
                 String userAsJson = gson.toJson(user);
                 String enclosureAsJson = gson.toJson(enclosure);
 
-                Intent intent = new Intent(ShopActivity.this,CreatureShopActivity.class);
+                Intent intent = new Intent(EnclosureActivity.this,CreatureEnclosureActivity.class);
 
                 intent.putExtra("Selected Creature", creatureSelected );
                 intent.putExtra("Shop",shopAsJson );
@@ -84,15 +79,13 @@ public class ShopActivity extends AppCompatActivity {
         });
     }
 
-    private ArrayList<String> getAllCreaturesFromShop(Shop shop) {
+    private ArrayList<String> getAllCreaturesFromEnclosure(Enclosure enclosure) {
         ArrayList<String> creatures = new ArrayList<String>();
 
-        ArrayList<Creature> warehouse = shop.getShopWarehouse();
-        for (Creature creature : warehouse) {
+        ArrayList<Creature> enclosureCreatures = enclosure.getCoop();
+        for (Creature creature : enclosureCreatures) {
             creatures.add(creature.toString());
         }
         return creatures;
     }
-
 }
-

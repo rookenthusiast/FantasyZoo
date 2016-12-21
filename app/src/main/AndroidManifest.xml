@@ -41,6 +41,17 @@
 
         </activity>
 
+        <activity android:name=".CreatureEnclosureActivity"
+            android:label="@string/enclosure_label">
+
+        </activity>
+
+        <activity android:name=".EnclosureActivity"
+            android:parentActivityName=".CreatureEnclosureActivity"
+            android:label="@string/enclosure_label">
+
+        </activity>
+
     </application>
 
 </manifest>

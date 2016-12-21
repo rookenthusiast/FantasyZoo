@@ -16,4 +16,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/enter_storage_button"
+        android:text="@string/storage_button_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/enter_enclosure_button"
+        android:text="@string/enclosure_button_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
 </LinearLayout>

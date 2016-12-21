@@ -16,6 +16,8 @@ import com.google.gson.Gson;
 public class FantasyZoo extends AppCompatActivity {
     TextView usersZooText;
     Button shopButton;
+    Button enclosureButton;
+    Button storageButton;
     User user;
     Enclosure enclosure;
     Shop shop;
@@ -30,6 +32,8 @@ public class FantasyZoo extends AppCompatActivity {
 
         usersZooText = (TextView) findViewById(R.id.zoo_hub_text);
         shopButton = (Button) findViewById(R.id.enter_shop_button);
+        enclosureButton = (Button) findViewById(R.id.enter_enclosure_button);
+        storageButton = (Button) findViewById(R.id.enter_storage_button);
         enclosure = new Enclosure("Bird nest", HoldType.AVIARY);
         user = new User("Cameron",enclosure);
 
@@ -44,7 +48,10 @@ public class FantasyZoo extends AppCompatActivity {
             Gson gson = new Gson();
             user = gson.fromJson(userAsJson, User.class);
             enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
-            shop = gson.fromJson(shopAsJson, Shop.class);
+
+            if (shopAsJson != null) {
+                shop = gson.fromJson(shopAsJson, Shop.class);
+            }
         }
 
 
@@ -68,6 +75,39 @@ public class FantasyZoo extends AppCompatActivity {
             }
         });
 
+        enclosureButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Gson gson = new Gson();
+                String enclosureAsJson = gson.toJson(enclosure);
+                String userAsJson = gson.toJson(user);
+                String shopAsJson = gson.toJson(shop);
+                Intent intent = new Intent(FantasyZoo.this, EnclosureActivity.class);
+                intent.putExtra("Enclosure", enclosureAsJson);
+                intent.putExtra("User",userAsJson );
+                intent.putExtra("Shop", shopAsJson);
+                startActivity(intent);
+            }
+        });
+
+        storageButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Gson gson = new Gson();
+                String enclosureAsJson = gson.toJson(enclosure);
+                String userAsJson = gson.toJson(user);
+                String shopAsJson = gson.toJson(shop);
+                Intent intent = new Intent(FantasyZoo.this, UserStorageActivity.class);
+                intent.putExtra("Enclosure", enclosureAsJson);
+                intent.putExtra("User",userAsJson );
+                intent.putExtra("Shop", shopAsJson);
+                startActivity(intent);
+            }
+        });
 
     }
 }

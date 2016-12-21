@@ -4,16 +4,17 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/creature_info"
-        android:textSize="30dp"
+        android:id="@+id/enclosure_text"
+        android:text="@string/enclosure_text"
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/buy_creature_button"
-        android:textSize="30dp"
-        android:text="@string/buy_label"
+    <ListView
+        android:id="@+id/enclosure_listview"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+    </ListView>
+
 
 </LinearLayout>

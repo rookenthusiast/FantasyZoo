@@ -10,4 +10,9 @@
     <string name="storage_text">Welcome to your storage user, what creature would you like to manage?</string>
     <string name="storage_label">User Storage</string>
     <string name="fantasy_zoo_button">Return to Zoo</string>
+    <string name="enclosure_text">This is your enclosure user, here you may view all creatures in your enclosure</string>
+    <string name="enclosure_label">User Enclosure</string>
+    <string name="add_to_enclosure_label">Add</string>
+    <string name="storage_button_label">Storage</string>
+    <string name="enclosure_button_label">Enclosure</string>
 </resources>

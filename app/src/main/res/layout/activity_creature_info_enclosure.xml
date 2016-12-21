@@ -10,9 +10,9 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/buy_creature_button"
+        android:id="@+id/add_to_enclosure_button"
         android:textSize="30dp"
-        android:text="@string/buy_label"
+        android:text="@string/add_to_enclosure_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

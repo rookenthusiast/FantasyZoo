@@ -29,6 +29,10 @@ public class Enclosure {
         return hold;
     }
 
+    public ArrayList<Creature> getCoop() {
+        return coop;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -48,7 +52,18 @@ public class Enclosure {
     public int checkHowManyCreaturesInCoop(){
         return coop.size();
     }
-//
+
+    public Creature getCreatureByName(String name){
+        for(Creature coopCreature : coop){
+            if(coopCreature.getName().equals(name) ){
+                return coopCreature;}
+
+        }
+
+        return null;
+    }
+
+    //
     public String addCreatureIfSuitable(Creature creature) {
         String message = null;
         for (HoldType holds : creature.getHabitats()) {
