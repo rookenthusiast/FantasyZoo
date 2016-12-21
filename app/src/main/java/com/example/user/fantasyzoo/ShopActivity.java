@@ -23,6 +23,8 @@ public class ShopActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     Shop shop;
     Creature creature;
+    User user;
+    Enclosure enclosure;
 
 
     @Override
@@ -32,6 +34,17 @@ public class ShopActivity extends AppCompatActivity {
 
         ShopText = (TextView) findViewById(R.id.shop_text);
         shopListView = (ListView)findViewById(R.id.shop_listview);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        Gson gson = new Gson();
+
+        String userAsJson = extras.getString("User");
+        String enclosureAsJson = extras.getString("Enclosure");
+
+        user = gson.fromJson(userAsJson, User.class);
+        enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
+
 
         shop = new Shop();
 
@@ -49,9 +62,16 @@ public class ShopActivity extends AppCompatActivity {
 
                 Gson gson = new Gson();
                 String shopAsJson = gson.toJson(shop);
+                String userAsJson = gson.toJson(user);
+                String enclosureAsJson = gson.toJson(enclosure);
+
                 Intent intent = new Intent(ShopActivity.this,CreatureShopActivity.class);
+
                 intent.putExtra("Selected Creature", creatureSelected );
                 intent.putExtra("Shop",shopAsJson );
+                intent.putExtra("Enclosure", enclosureAsJson);
+                intent.putExtra("User", userAsJson);
+
                 startActivity(intent);
             }
         });

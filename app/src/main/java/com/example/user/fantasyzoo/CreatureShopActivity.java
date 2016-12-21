@@ -17,6 +17,8 @@ public class CreatureShopActivity extends AppCompatActivity {
     TextView testView;
     Button buyButton;
     Shop shop;
+    User user;
+    Enclosure enclosure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +33,19 @@ public class CreatureShopActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         Gson gson = new Gson();
+
         String shopAsJson = extras.getString("Shop");
+        String userAsJson = extras.getString("User");
+        String enclosureAsJson = extras.getString("Enclosure");
+
         final String creature = extras.getString("Selected Creature");
         creatureInfo.setText(creature);
-        System.out.println(creature);
 
+        enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
         shop = gson.fromJson(shopAsJson, Shop.class);
+        user = gson.fromJson(userAsJson, User.class);
+
+
 
         buyButton.setOnClickListener(new View.OnClickListener(){
 
@@ -45,9 +54,23 @@ public class CreatureShopActivity extends AppCompatActivity {
 
                 Creature creatureInShop = getCreatureFromString(creature);
                 int creatureIndexInShop = shop.getIndexOfCreature(creatureInShop);
-                shop.removeCreatureFromShop(creatureIndexInShop);
+                Creature creatureRemovedFromShop = shop.removeCreatureFromShop(creatureIndexInShop);
+                user.addCreatureToStorage(creatureRemovedFromShop);
+
+
+                Gson gson = new Gson();
+
+                String shopAsJson = gson.toJson(shop);
+                String enclosureAsJson = gson.toJson(enclosure);
+                String userAsJson = gson.toJson(user);
+
                 Intent intent = new Intent(CreatureShopActivity.this, UserStorageActivity.class);
+
                 intent.putExtra("creatureInfo", creatureInfo.getText() );
+                intent.putExtra("Shop",shopAsJson );
+                intent.putExtra("enclosure", enclosureAsJson);
+                intent.putExtra("user", userAsJson);
+
                 startActivity(intent);
             }
         });

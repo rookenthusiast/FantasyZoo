@@ -47,8 +47,9 @@ public class Shop {
 
     public Creature getCreatureByName(String name){
         for(Creature shopCreature : shopWarehouse){
-            if(shopCreature.getName() == name){
+            if(shopCreature.getName().equals(name) ){
                 return shopCreature;}
+
         }
 
         return null;

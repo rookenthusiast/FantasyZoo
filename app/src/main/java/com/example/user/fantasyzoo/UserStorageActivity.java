@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
 /**
@@ -20,6 +22,9 @@ public class UserStorageActivity extends AppCompatActivity{
     ListView listView;
     ArrayAdapter<String> adapter;
     Enclosure enclosure;
+    User user;
+    Shop shop;
+
 
 
     @Override
@@ -32,6 +37,14 @@ public class UserStorageActivity extends AppCompatActivity{
 
         enclosure = new Enclosure("The Bird Cage", HoldType.AVIARY);
         final User user = new User("Cameron",enclosure);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        Gson gson = new Gson();
+
+        String shopAsJson = extras.getString("Shop");
+        String userAsJson = extras.getString("User");
+        String enclosureAsJson = extras.getString("Enclosure");
 
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,getAllCreaturesFromStorage(user));
