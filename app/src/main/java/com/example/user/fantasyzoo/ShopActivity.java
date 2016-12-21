@@ -38,6 +38,8 @@ public class ShopActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
+        shop = new Shop();
+
         if(extras != null) {
             String userAsJson = extras.getString("User");
             String enclosureAsJson = extras.getString("Enclosure");
@@ -47,11 +49,9 @@ public class ShopActivity extends AppCompatActivity {
             user = gson.fromJson(userAsJson, User.class);
             enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
 
-//            if(shopAsJson != null){
-//                shop = gson.fromJson(shopAsJson, Shop.class);
-//            } else if(shopAsJson == null){
-            shop = new Shop();
-//            }
+            if(!shopAsJson.equals("null")){
+                shop = gson.fromJson(shopAsJson, Shop.class);
+            }
 
         }
 

@@ -32,7 +32,17 @@ public class CreatureStorageActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         final String creature = extras.getString("Selected Creature");
+
+        String shopAsJson = extras.getString("Shop");
+        String userAsJson = extras.getString("User");
+        String enclosureAsJson = extras.getString("Enclosure");
+
         creatureInfo.setText(creature);
+
+        Gson gson = new Gson();
+        enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
+        shop = gson.fromJson(shopAsJson, Shop.class);
+        user = gson.fromJson(userAsJson, User.class);
 
         addToEnclosureButton.setOnClickListener(new View.OnClickListener(){
 
@@ -42,7 +52,7 @@ public class CreatureStorageActivity extends AppCompatActivity {
                 Creature creatureInStorage = getCreatureFromString(creature);
                 int creatureIndexInStorage = user.getCreatureByIndex(creatureInStorage);
                 Creature creatureRemovedFromStorage = user.removeCreatureFromStorage(creatureIndexInStorage);
-                enclosure.addCreature(creatureRemovedFromStorage);
+                enclosure.addCreatureIfSuitable(creatureRemovedFromStorage);
 
 
                 Gson gson = new Gson();

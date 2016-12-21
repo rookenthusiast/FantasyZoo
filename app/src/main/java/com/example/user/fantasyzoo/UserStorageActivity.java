@@ -44,7 +44,7 @@ public class UserStorageActivity extends AppCompatActivity{
         Gson gson = new Gson();
 
         String shopAsJson = extras.getString("Shop");
-        String userAsJson = extras.getString("User");
+        final String userAsJson = extras.getString("User");
         String enclosureAsJson = extras.getString("Enclosure");
 
         enclosure = gson.fromJson(enclosureAsJson, Enclosure.class);
@@ -90,9 +90,20 @@ public class UserStorageActivity extends AppCompatActivity{
 
                 Log.d("shopListView",creatureSelected + "selected");
 
+                Gson gson = new Gson();
+
+                String shopAsJson = gson.toJson(shop);
+                String enclosureAsJson = gson.toJson(enclosure);
+                String userAsJson = gson.toJson(user);
+
 
                 Intent intent = new Intent(UserStorageActivity.this, CreatureStorageActivity.class);
+
                 intent.putExtra("Selected Creature", creatureSelected );
+                intent.putExtra("Shop",shopAsJson );
+                intent.putExtra("Enclosure", enclosureAsJson);
+                intent.putExtra("User", userAsJson);
+
                 startActivity(intent);
             }
         });
